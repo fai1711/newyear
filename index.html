@@ -57,37 +57,30 @@
             <h1 class="move">Happy New Year with a flower bouquet instead of my mukky!</h1>
             <img src="./assets/bq.jpeg" alt="Bouquet">
         </div>
-        <audio id="birthdaySong" src="./assets/bi saraha.mp3"></audio>
+       <audio id="birthdaySong" src="./assets/music.mp3"></audio>
     </section>
 
     <script>
-        const playButton = document.getElementById("playButton");
-        const audio = document.getElementById("birthdaySong");
+       const playButton = document.getElementById("playButton");
+const audio = document.getElementById("birthdaySong");
 
-        // Toggle audio play/pause on button click
-        playButton.addEventListener("click", () => {
-            if (audio.paused) {
-                audio.play();
-                playButton.classList.add("playing");
-            } else {
-                audio.pause();
-                playButton.classList.remove("playing");
-            }
+playButton.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play().then(() => {
+            playButton.classList.add("playing");
+            console.log("Audio playing successfully");
+        }).catch((error) => {
+            console.error("Audio failed to play:", error);
+            alert("Please click again or check if the file exists!");
         });
-
-        const hiddenElements = document.querySelectorAll(".hidden");
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                } else {
-                    entry.target.classList.remove('show');
-                }
-            });
-        });
+    } else {
+        audio.pause();
+        playButton.classList.remove("playing");
+    }
+});
 
         hiddenElements.forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
+
