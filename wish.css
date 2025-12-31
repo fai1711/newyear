@@ -1,178 +1,130 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lobster&family=Lora:ital@0;1&family=Poppins:wght@300;400&display=swap");
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden; /* Prevents text from being "lost" off-screen */
 }
 
 body {
-  margin: 0;
-  background-color: #f8ad9d;
+    background-color: #f8ad9d;
+    margin: 0;
 }
 
 section {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 5rem;
-  min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    min-height: 100vh; /* Changed to vh to ensure full screen scrolling */
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* Base text styles to ensure visibility */
+h1, p {
+    color: #2d2d2d; 
+    font-family: "Poppins", sans-serif;
 }
 
 img {
-  width: 300px;
-  border-radius: 10px;
-  margin-top: 50px;
-  transition: 0.8s ease;
+    width: 300px;
+    border-radius: 10px;
+    transition: 0.8s ease;
 }
 
 img:hover {
-  margin-bottom: 20px;
-  box-shadow: 12px 12px #07072c;
+    transform: scale(1.05);
+    box-shadow: 12px 12px #07072c;
 }
 
+/* SECTION THEMES */
 .darkestPeach {
-  background-color: #f08080;
-  font-family: "Poppins", sans-serif;
-  color: antiquewhite;
+    background-color: #f08080;
+    color: antiquewhite;
+    position: relative;
 }
+.darkestPeach h1, .darkestPeach p { color: antiquewhite; }
 
 .darkPeach {
-  background-color: #f4978e;
+    background-color: #f4978e;
 }
 
-.Peach {
-  background-color: #f8ad9d;
-  display: grid;
-  grid-template-columns: 40% auto;
+/* Fixed Case Sensitivity: changed from .Peach to .peach */
+.peach {
+    background-color: #f8ad9d;
 }
 
 .lightPeach {
-  background-color: #f7dba7;
-  color: rgb(0, 0, 0);
-  font-family: "Poppins", sans-serif;
-}
-
-.awards:hover {
-  margin-bottom: 20px;
-  box-shadow: 12px 12px wheat;
-}
-
-.gray {
-  font-family: "Poppins", sans-serif;
-}
-
-.whitePeach {
-  background-color: antiquewhite;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  font-family: "Poppins", sans-serif;
-  word-wrap: break-word;
-  justify-content: space-between;
-  align-content: center;
-}
-
-.hidden {
-  opacity: 0;
-  transition: all 1s;
-  filter: opacity(0);
-  transform: translateX(-100%);
-}
-
-.show {
-  opacity: 1;
-  filter: opacity(100%);
-  transform: translateX(0);
-}
-
-@media (prefers-reduced-motion) {
-  .hidden {
-    transition: none;
-  }
-}
-
-span {
-  font-family: "Lobster", cursive;
+    background-color: #f7dba7;
 }
 
 .final {
-    display: flex;
-    flex-direction: column; /* Stack text and image vertically */
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     text-align: center;
-    gap: 2rem;
     font-family: "Dancing Script", cursive;
-    background-image: url("https://media.discordapp.net/attachments/701125768675065917/1030317951141818398/2022-10-13_10.png?width=1246&height=701");
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("https://media.discordapp.net/attachments/701125768675065917/1030317951141818398/2022-10-13_10.png?width=1246&height=701");
     background-size: cover;
     background-position: center;
-    min-height: 100vh; /* Make it full screen */
 }
 
+/* ANIMATION LOGIC */
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(30px); /* Changed from translateX to Y so it doesn't fly off-screen */
+    transition: all 1s ease-out;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion) {
+    .hidden { transition: none; }
+}
+
+/* SPECIAL ELEMENTS */
+span {
+    font-family: "Lobster", cursive;
+    color: #900000;
+}
 
 .move {
-    margin-right: 0; /* Changed from 1000px to 0 to make it visible */
     font-size: 3rem;
-    color: #900000;
+    color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin: 0;
 }
+
+/* PLAY BUTTON */
 .playButtonWrapper {
     text-align: center;
-    position: absolute;
-    left: 20px; /* Position to the left side */
-    top: 50%; /* Vertically center */
-    transform: translateY(-50%);
+    margin-bottom: 20px;
 }
 
 .playText {
-    font-size: 16px;
+    font-size: 14px;
     color: white;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .playButton {
-    width: 70px;  /* Increased button size */
-    height: 70px;  /* Increased button size */
-    background-color: #fb9389;  /* Customize color */
+    width: 60px;
+    height: 60px;
+    background-color: #fb9389;
     border-radius: 50%;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    font-size: 30px;  /* Increased icon size */
+    transition: 0.3s;
+    margin: 0 auto;
 }
 
-.playButton:hover {
-    background-color: #f17e63;  /* Change color on hover */
-    transform: scale(1.1); /* Slightly enlarge on hover */
-}
-
-.playButton .playIcon {
-    color: white;
-    font-weight: bold;
-}
-
-.playButton.playing .playIcon {
-    content: '\u23F8';  /* Unicode for Pause */
-}
-
-/* Section styles */
-.darkestPeach {
-    position: relative;
-    padding: 50px;
-    background-color: #wheat;
-}
-
-.darkestPeach .hidden {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.darkestPeach .show {
-    opacity: 1;
-}
-
-/* Add other section styles as needed */
+.playButton:hover { transform: scale(1.1); background-color: #f17e63; }
+.playButton .playIcon { color: white; font-size: 24px; }
