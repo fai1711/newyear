@@ -14,9 +14,10 @@
             <div class="playButtonWrapper">
                 <p class="playText">Click me 1st</p>
                 <button id="playButton" class="playButton">
-                    <span class="playIcon">&#9654;</span> </button>
+                    <span class="playIcon">&#9654;</span> 
+                </button>
             </div>
-            <img src="https://gifimage.net/wp-content/uploads/2017/10/dancing-cat-gif.gif">
+            <img src="https://gifimage.net/wp-content/uploads/2017/10/dancing-cat-gif.gif" alt="Dancing Cat">
         </div>
         <div class="hidden">
             <h1>Happy New Year, Gulab Danam!</h1>
@@ -24,9 +25,10 @@
             <p>scroll down SIRR G :D</p>
         </div>
         <div class="hidden">
-            <img class="hidden" src="assets/hbd.jpeg">
+            <img src="./assets/hbd.jpeg" alt="New Year Celebration">
         </div>
     </section>
+
     <section class="darkPeach">
         <div class="hidden">
             <h1>Karnu!</h1>
@@ -35,27 +37,30 @@
             <h1>Sweet Beginnings</h1>
             <p>May your year be as sweet as a Russ Gulla and as bright as your HASEEN eyes. Stay exactly as you are, meri pyari bchoOo :o</p>
         </div>
-        <img class="hidden" src="assets/russs.jpeg" class="awards">
+        <img class="hidden awards" src="./assets/russs.jpeg" alt="Sweets">
     </section>
+
     <section class="peach">
         <div class="hidden">
             <h1>A Brand New Start!</h1>
             <p>TBH, looking back at the past year, you were the best part of it. You are not only lovable and affable, but truly the most wholesome soul I know.</p>
             <p>My wish for you this year is simple: I hope all your worries fade away and your sacrifices finally lead to the joy you deserve. I'll be right here cheering for you...</p>
         </div>
-        <img class="hidden" src="https://media.tenor.com/GdJRGf60YN4AAAAC/hugs-sending-virtual-hugs.gif">
+        <img class="hidden" src="https://media.tenor.com/GdJRGf60YN4AAAAC/hugs-sending-virtual-hugs.gif" alt="Virtual Hug">
     </section>
+
     <section class="lightPeach">
         <div class="hidden">
             <h1>My 2026 Resolution: <span>Spending the year with you despite your kartoot</span></h1>
-            <p>Growing together, sharing our struggles and miseries and fighting with you this coming year—I promise to stay around you tomorrow and every single day of the year to come ...</p>
+            <p>"Growing together, sharing our struggles and miseries and fighting with you this coming year—I promise to stay around you tomorrow and every single day of the year to come."...</p>
         </div>
-        <img class="hidden" src="assets/huggg.jpeg">
+        <img class="hidden" src="./assets/huggg.jpeg" alt="Love of my life">
     </section>
+
     <section class="final">
         <div class="hidden">
             <h1 class="move">Happy New Year with a flower bouquet instead of my mukky!</h1>
-            <img src="assets/bq.jpeg" alt="Bouquet">
+            <img src="./assets/bq.jpeg" alt="Bouquet">
         </div>
         <audio id="birthdaySong" src="bi saraha.mp3"></audio>
     </section>
@@ -64,7 +69,6 @@
         const playButton = document.getElementById("playButton");
         const audio = document.getElementById("birthdaySong");
 
-        // Toggle audio play/pause on button click
         playButton.addEventListener("click", () => {
             if (audio.paused) {
                 audio.play();
@@ -76,7 +80,6 @@
         });
 
         const hiddenElements = document.querySelectorAll(".hidden");
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -85,10 +88,9 @@
                     entry.target.classList.remove('show');
                 }
             });
-        });
+        }, { threshold: 0.1 }); // Trigger when 10% is visible
 
         hiddenElements.forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
-
