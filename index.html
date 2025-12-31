@@ -4,80 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Happy New Year!</title>
     <link rel="stylesheet" href="wish.css" type="text/css">
     <script defer src="wis.js"></script>
 </head>
 <body>
     <section class="darkestPeach">
         <div class="hidden">
-            <!-- Play Button with Text Above -->
             <div class="playButtonWrapper">
                 <p class="playText">Click me 1st</p>
                 <button id="playButton" class="playButton">
-                    <span class="playIcon">&#9654;</span> <!-- Play icon -->
-                </button>
+                    <span class="playIcon">&#9654;</span> </button>
             </div>
             <img src="https://gifimage.net/wp-content/uploads/2017/10/dancing-cat-gif.gif">
         </div>
         <div class="hidden">
-            <h1>Happy Birthday Gulab Danam!</h1>
-            <p>Even though I haven't met you in person yet, I wanted to do something for you. I hope you'll like this.</p>
-            <p>scroll down :D</p>
+            <h1>Happy New Year, Gulab Danam!</h1>
+            <p>A new chapter is starting, and I wanted to make sure yours begins with a smile. I hope 2026 brings you peace, financial progress and good health.</p>
+            <p>scroll down SIRR G :D</p>
         </div>
-        <!-- Added Image below the text section -->
         <div class="hidden">
-            <img class="hidden" src="assets/hbd.jpeg">
+            <img class="hidden" src="hbd.jpeg">
         </div>
     </section>
     <section class="darkPeach">
         <div class="hidden">
-            <h1>Zaazu!</h1>
-            <p>I wanted to tell you that you are a good person. A best child and pride of your parents, a best brother of your siblings and a best friend!</p>
+            <h1>Karnu!</h1>
+            <p>As we step into this New Year, I want you to know how proud I am of you. You’ve handled everything with such grace—you are a resilient soul, a lobly being, and an imperfect yet lovable person ..</p>
             <br>
-            <h1>Mmm Russ Gulla</h1>
-            <p>You are a russ gulla with Haseen eyes so far hehe meri pyari ankhon wali bchoOo :o</p>
+            <h1>Sweet Beginnings</h1>
+            <p>May your year be as sweet as a Russ Gulla and as bright as your HASEEN eyes. Stay exactly as you are, meri pyari bchoOo :o</p>
         </div>
-        <img class="hidden" src="assets/russs.jpeg" class="awards">
+        <img class="hidden" src="russs.jpeg" class="awards">
     </section>
     <section class="peach">
         <div class="hidden">
-            <h1>You're a lovely being!</h1>
-            <p>TBH, you look perfect in my eyes. You are not only lovable, but also affable, lovely, and undeniably the cutest, exuding wholesomeness the way</p>
-            <p> you are zaleeli habibti. I only wish there was a magic wand to take away all your worries and pain. But even that wouldn't be enough to truly  </p>
-             <p>appreciate all that you've sacrificed and continue to sacrifice to make your loved ones proud. I may not have much, but I’ve made this small </p>
-             <p>effort as a token of appreciation for everything you are and do...</p>
+            <h1>A Brand New Start!</h1>
+            <p>TBH, looking back at the past year, you were the best part of it. You are not only lovable and affable, but truly the most wholesome soul I know.</p>
+            <p>My wish for you this year is simple: I hope all your worries fade away and your sacrifices finally lead to the joy you deserve. I'll be right here cheering for you...</p>
         </div>
-        <img class="hidden" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExajVncmZja2xxNzIxbHBlMTQ5eGM2cjRjNncyN205dXpmdWpoY3ZrYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ZBQhoZC0nqknSviPqT/giphy.gif">
+        <img class="hidden" src="https://media.tenor.com/GdJRGf60YN4AAAAC/hugs-sending-virtual-hugs.gif">
     </section>
     <section class="lightPeach">
         <div class="hidden">
-            <h1>One word, <span>Love of my life</span></h1>
-            <p>That's the word I would use to describe you...</p>
+            <h1>My 2026 Resolution: <span>Spending the year with you despite your kartoot</span></h1>
+            <p>Growing together, sharing our struggles and miseries and fighting with you this coming year—I promise to stay around you tomorrow and every single day of the year to come ...</p>
         </div>
-        <img class="hidden" src="assets/loml.jpeg">
+        <img class="hidden" src="huggg.jpeg">
     </section>
     <section class="final">
-        <h1 class="move">I love You!</h1>
-        
-        <!-- Audio element -->
-        <audio id="birthdaySong" src="assets/bi%20saraha.mp3"></audio>
+        <div class="hidden">
+            <h1 class="move">Happy New Year with a flower bouquet instead of my mukky!</h1>
+            <img src="bq.jpeg" alt="Bouquet">
+        </div>
+        <audio id="birthdaySong" src="bi saraha.mp3"></audio>
     </section>
 
     <script>
         const playButton = document.getElementById("playButton");
         const audio = document.getElementById("birthdaySong");
-        const playIcon = playButton.querySelector(".playIcon");
 
         // Toggle audio play/pause on button click
         playButton.addEventListener("click", () => {
             if (audio.paused) {
                 audio.play();
-                playIcon.innerHTML = "⏸"; // Change to pause icon
                 playButton.classList.add("playing");
             } else {
                 audio.pause();
-                playIcon.innerHTML = "▶"; // Change to play icon
                 playButton.classList.remove("playing");
             }
         });
