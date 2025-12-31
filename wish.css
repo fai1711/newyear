@@ -112,19 +112,59 @@ span {
     margin-bottom: 5px;
 }
 
+/* --- Audio Button Styles --- */
+
 .playButton {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background-color: #fb9389;
     border-radius: 50%;
     border: none;
-    display: flex;
+    display: flex; /* Keeps icons centered */
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: 0.3s;
-    margin: 0 auto;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 30px;
+    position: relative; /* Needed for the ::after positioning */
 }
 
-.playButton:hover { transform: scale(1.1); background-color: #f17e63; }
-.playButton .playIcon { color: white; font-size: 24px; }
+.playButton:hover {
+    background-color: #f17e63;
+    transform: scale(1.1);
+}
+
+.playButton .playIcon {
+    color: white;
+    font-weight: bold;
+}
+
+/* --- The Pause Button Logic you requested --- */
+
+.playButton.playing .playIcon {
+    display: none; /* Hides the Play arrow */
+}
+
+.playButton.playing::after {
+    content: '\23F8'; /* Shows Pause bars */
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Wrapper for positioning --- */
+.playButtonWrapper {
+    text-align: center;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.playText {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 10px;
+}
