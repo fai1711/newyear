@@ -97,14 +97,26 @@ span {
 }
 
 .final {
-  gap: 1rem;
-  font-family: "Dancing Script", cursive;
-  background-image: url("https://media.discordapp.net/attachments/701125768675065917/1030317951141818398/2022-10-13_10.png?width=1246&height=701");
+    display: flex;
+    flex-direction: column; /* Stack text and image vertically */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    font-family: "Dancing Script", cursive;
+    background-image: url("https://media.discordapp.net/attachments/701125768675065917/1030317951141818398/2022-10-13_10.png?width=1246&height=701");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Make it full screen */
 }
 
+
 .move {
-  margin-right: 1000px;
-}/* Play Button Styles */
+    margin-right: 0; /* Changed from 1000px to 0 to make it visible */
+    font-size: 3rem;
+    color: #900000;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
 .playButtonWrapper {
     text-align: center;
     position: absolute;
