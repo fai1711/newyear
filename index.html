@@ -60,28 +60,38 @@
        <audio id="birthdaySong" src="./assets/saraha.mpeg"></audio>
     </section>
 
-    <script>
-       const playButton = document.getElementById("playButton");
-const audio = document.getElementById("birthdaySong");
+     <script>
+        const playButton = document.getElementById("playButton");
+        const audio = document.getElementById("birthdaySong");
 
-playButton.addEventListener("click", () => {
+        // Toggle audio play/pause on button click
+        playButton.addEventListener("click", () => {
     if (audio.paused) {
         audio.play().then(() => {
-            playButton.classList.add("playing");
-            console.log("Audio playing successfully");
-        }).catch((error) => {
-            console.error("Audio failed to play:", error);
-            alert("Please click again or check if the file exists!");
+            playButton.classList.add("playing"); // This triggers the CSS pause icon
         });
     } else {
         audio.pause();
-        playButton.classList.remove("playing");
+        playButton.classList.remove("playing"); // This brings back the play arrow
     }
 });
+
+        const hiddenElements = document.querySelectorAll(".hidden");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
 
         hiddenElements.forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
+
 
 
